@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DentIA - Próximamente</title>
+    
     <link rel="icon" href="./Logo_DentIA.png" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,27 +22,26 @@
             overflow-x: hidden;
         }
 
-        /* FONDO CORREGIDO Y REFORZADO */
+        /* CONFIGURACIÓN DE FONDO REFORZADA */
         .hero-container {
             position: relative;
             min-height: 100vh;
             width: 100%;
-            /* Intentamos cargar la imagen con prioridad absoluta */
-            background-image: url('DentiA_Home.png'); 
+            /* CORRECCIÓN: Nombre exacto del archivo con mayúsculas y ruta relativa */
+            background-image: url('./DentIA_Home.png'); 
             background-size: cover; 
             background-position: center center;
-            background-attachment: fixed; /* Esto ayuda a que se mantenga firme */
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
-        /* Capa de respaldo por si la imagen tarda en cargar */
         .overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.98) 100%);
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.96) 100%);
             z-index: 1;
         }
 
@@ -149,13 +149,8 @@
             border-color: rgba(0, 119, 255, 0.2);
         }
 
-        .feature-card.blue:hover {
-            box-shadow: 0 15px 40px rgba(0, 119, 255, 0.3);
-            border-color: rgba(0, 119, 255, 0.6);
-        }
-
         .feature-icon { font-size: 2.8rem; margin-bottom: 18px; }
-        .feature-card h3 { color: #00D2FF; margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px;}
+        .feature-card h3 { color: #00D2FF; margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; }
         .feature-card.blue h3 { color: #66b2ff; }
         .feature-card p { color: #CBD5E1; font-size: 0.98rem; line-height: 1.6; margin: 0; }
 
@@ -267,6 +262,7 @@
 
         <div class="hero-layout">
             <div class="left-panel">
+                
                 <div class="header-container">
                     <img src="./Logo_DentIA.png" alt="DentIA Logo" class="logo-img">
                     <h1>DentIA</h1>
