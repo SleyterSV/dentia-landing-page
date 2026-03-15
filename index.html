@@ -36,7 +36,6 @@
             padding: 20px;
         }
 
-        /* CAPA OSCURA (Vignette) */
         .overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -44,7 +43,7 @@
             z-index: 1;
         }
 
-        /* --- NUEVO LAYOUT (3/4 y 1/4) --- */
+        /* --- LAYOUT --- */
         .hero-layout {
             position: relative;
             z-index: 10;
@@ -55,7 +54,6 @@
             align-items: center;
         }
 
-        /* PANEL IZQUIERDO (3/4) */
         .left-panel {
             flex: 3;
             display: flex;
@@ -64,7 +62,6 @@
             text-align: center;
         }
 
-        /* PANEL DERECHO (1/4) */
         .right-panel {
             flex: 1;
             display: flex;
@@ -79,7 +76,7 @@
             min-width: 320px;
         }
 
-        /* LOGO */
+        /* LOGO & TÍTULOS */
         .logo-img {
             width: 120px; 
             height: auto;
@@ -89,7 +86,6 @@
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* TÍTULOS */
         h1 {
             font-size: 3.5rem;
             margin: 0 0 10px 0;
@@ -114,7 +110,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        /* --- TARJETAS DE CARACTERÍSTICAS --- */
+        /* --- TARJETAS --- */
         .cards-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -152,30 +148,12 @@
             border-color: rgba(0, 119, 255, 0.6);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .feature-card h3 { color: #00D2FF; margin: 0 0 10px 0; font-size: 1.3rem; font-weight: 700; }
+        .feature-card.blue h3 { color: #66b2ff; }
+        .feature-card p { color: #CBD5E1; font-size: 0.95rem; line-height: 1.5; margin: 0; }
 
-        .feature-card h3 {
-            color: #00D2FF;
-            margin: 0 0 10px 0;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .feature-card.blue h3 {
-            color: #66b2ff;
-        }
-
-        .feature-card p {
-            color: #CBD5E1;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* --- ESTRUCTURA DEL CONTADOR --- */
+        /* --- CONTADOR --- */
         .right-panel h3.sidebar-title {
             color: white;
             font-size: 1.5rem;
@@ -186,15 +164,8 @@
             text-shadow: 0 0 10px rgba(0, 119, 255, 0.8);
         }
 
-        .timer-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            width: 100%;
-        }
-
+        .timer-wrapper { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 30px; width: 100%; }
+        
         .months-box {
             background: rgba(13, 18, 30, 0.75);
             border: 2px solid #0077ff;
@@ -207,30 +178,10 @@
             width: 100%;
         }
 
-        .months-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1;
-            text-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
-        }
+        .months-number { font-size: 3rem; font-weight: 800; color: #fff; line-height: 1; text-shadow: 0 0 20px rgba(0, 119, 255, 0.8); }
+        .months-label { font-size: 0.8rem; color: #66b2ff; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 5px; }
 
-        .months-label {
-            font-size: 0.8rem;
-            color: #66b2ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        .detail-timer {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            width: 100%;
-        }
-
+        .detail-timer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
         .time-box {
             background: rgba(13, 18, 30, 0.5);
             border: 1px solid rgba(0, 210, 255, 0.3);
@@ -241,129 +192,38 @@
             align-items: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-
-        .time-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-        }
-
-        .time-label {
-            font-size: 0.7rem;
-            color: #00d2ff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            font-weight: 600;
-        }
+        .time-number { font-size: 1.8rem; font-weight: 700; color: #fff; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+        .time-label { font-size: 0.7rem; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; font-weight: 600; }
 
         /* --- BOTONES --- */
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; }
 
         .btn-lanzamiento {
             background: linear-gradient(135deg, #00d2ff 0%, #0077ff 100%);
-            color: white;
-            padding: 15px 30px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 1px;
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
+            color: white; padding: 15px 30px; font-size: 1rem; border: none; border-radius: 50px; text-decoration: none; font-weight: 700; letter-spacing: 1px; box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; width: 100%; text-align: center;
         }
-        .btn-lanzamiento:hover {
-            box-shadow: 0 0 50px rgba(0, 210, 255, 0.7);
-            transform: scale(1.05);
-        }
+        .btn-lanzamiento:hover { box-shadow: 0 0 50px rgba(0, 210, 255, 0.7); transform: scale(1.05); }
 
         .btn-demo {
-            background: rgba(0, 210, 255, 0.05);
-            color: #00d2ff;
-            padding: 15px 30px;
-            font-size: 1rem;
-            border: 2px solid #00d2ff;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: rgba(0, 210, 255, 0.05); color: #00d2ff; padding: 15px 30px; font-size: 1rem; border: 2px solid #00d2ff; border-radius: 50px; text-decoration: none; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; width: 100%; text-align: center; display: flex; justify-content: center; align-items: center;
         }
-        .btn-demo:hover {
-            background: rgba(0, 210, 255, 0.15);
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
-            transform: scale(1.05);
-        }
+        .btn-demo:hover { background: rgba(0, 210, 255, 0.15); box-shadow: 0 0 25px rgba(0, 210, 255, 0.3); transform: scale(1.05); }
 
         /* --- MODAL --- */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(8px);
-            padding: 20px;
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; backdrop-filter: blur(8px); padding: 20px;
         }
 
         .modal-content {
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid #00d2ff;
-            border-radius: 20px;
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.2);
-            animation: zoomIn 0.3s ease;
+            background: rgba(15, 23, 42, 0.95); border: 1px solid #00d2ff; border-radius: 20px; padding: 30px; width: 100%; max-width: 400px; text-align: center; position: relative; box-shadow: 0 0 40px rgba(0, 210, 255, 0.2); animation: zoomIn 0.3s ease;
         }
         @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
 
-        .close-btn {
-            position: absolute;
-            top: 15px; right: 20px;
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
+        .close-btn { position: absolute; top: 15px; right: 20px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
         .close-btn:hover { color: #fff; }
 
         .input-group input {
-            width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid #444;
-            border-radius: 10px;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
+            width: 100%; padding: 15px; margin: 10px 0; background: rgba(255,255,255,0.05); border: 1px solid #444; border-radius: 10px; color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s;
         }
         .input-group input:focus { border-color: #00d2ff; }
         
@@ -372,15 +232,10 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
-            .hero-layout {
-                flex-direction: column;
-                padding-top: 40px;
-                padding-bottom: 40px;
-            }
+            .hero-layout { flex-direction: column; padding-top: 40px; padding-bottom: 40px; }
             .left-panel, .right-panel { width: 100%; }
             .right-panel { max-width: 400px; }
         }
-
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .logo-img { width: 100px; }
@@ -453,10 +308,11 @@
             <p style="color:#ccc;">Recibe acceso anticipado a Denti.IA.</p>
             
             <form name="submit-to-google-sheet" class="input-group">
-                <input type="text" name="Dueño" placeholder="Nombre del Dueño" required>
-                <input type="text" name="Clinica" placeholder="Nombre de la Clínica" required>
-                <input type="email" name="Email" placeholder="Correo Electrónico" required>
-                <input type="text" name="Direccion" placeholder="Dirección de la Clínica" required>
+                <input type="text" name="Nombre del encargado" placeholder="Nombre del Odontólogo/Encargado" required>
+                <input type="text" name="Nombre de Clinica" placeholder="Nombre de la Clínica" required>
+                <input type="email" name="Correo electronico" placeholder="Correo Electrónico" required>
+                <input type="tel" name="Numero telefonico" placeholder="Número Telefónico" required>
+                <input type="text" name="Dirección" placeholder="Dirección de la Clínica" required>
                 <button type="submit" class="btn-lanzamiento btn-submit">Registrarme</button>
             </form>
             <p id="msg-exito">¡Gracias! Los datos de tu clínica han sido registrados.</p>
@@ -464,29 +320,23 @@
     </div>
 
     <script>
-        // 🚨 IMPORTANTE: CAMBIA ESTE LINK POR EL DE TU NUEVO GOOGLE SHEETS DE DENTI.IA 🚨
-        const scriptURL = 'PEGAR_AQUI_TU_NUEVO_LINK_DE_GOOGLE_APPS_SCRIPT'; 
+        // API YA INTEGRADA DESDE TU CAPTURA
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzc2H9CFAqNM9Ddk0ksoBen5Zhe6q0Bw--VWnPoBn8biCJIFXqXn6PYHdqcBFukz8ny/exec'; 
 
-        // FECHA DE LANZAMIENTO: Domingo 5 de abril de 2026 (3 semanas desde este domingo)
         const launchDate = new Date("April 5, 2026 00:00:00");
 
         function updateTimer() {
             const now = new Date();
-            
             if (now >= launchDate) {
                 document.getElementById("countdown-ui").innerHTML = "<h2 style='color:#fff; font-size:1.5rem; text-shadow:0 0 20px cyan; text-align:center;'>¡YA ESTAMOS EN VIVO!</h2>";
                 return;
             }
-
             let months = (launchDate.getFullYear() - now.getFullYear()) * 12;
             months -= now.getMonth();
             months += launchDate.getMonth();
-            
             if (launchDate.getDate() < now.getDate()) months--;
-
             let tempDate = new Date(now);
             tempDate.setMonth(now.getMonth() + months);
-            
             let diff = launchDate - tempDate;
             if (diff < 0) diff = 0;
 
@@ -505,7 +355,6 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // MODAL Y ENVÍO
         const modal = document.getElementById("modal-suscription");
         const btnOpen = document.getElementById("openModalBtn");
         const btnClose = document.querySelector(".close-btn");
@@ -519,13 +368,6 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            
-            // Si no has puesto el link de Google Sheets, evitamos que dé error
-            if (scriptURL === 'PEGAR_AQUI_TU_NUEVO_LINK_DE_GOOGLE_APPS_SCRIPT') {
-                alert("Aún no has configurado el link de Google Sheets. Los datos no se guardarán.");
-                return;
-            }
-
             const btn = form.querySelector('.btn-submit');
             const originalText = btn.innerText;
             btn.innerText = "Enviando...";
