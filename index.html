@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Denti.IA - Próximamente</title>
+    <link rel="icon" href="Logo_DentiIA.png" type="image/png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS BASE --- */
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0; padding: 0;
+            width: 100%;
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #050505;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- FONDO ESTRUCTURAL --- */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background-image: url('DentiA_Home.png'); 
+            background-size: cover; 
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* CAPA OSCURA (Vignette) */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 1;
+        }
+
+        /* --- NUEVO LAYOUT (3/4 y 1/4) --- */
+        .hero-layout {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1400px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* PANEL IZQUIERDO (3/4) */
+        .left-panel {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* PANEL DERECHO (1/4) */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(13, 18, 30, 0.6);
+            padding: 40px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            min-width: 320px;
+        }
+
+        /* LOGO */
+        .logo-img {
+            width: 120px; 
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.5));
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* TÍTULOS */
+        h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            line-height: 1;
+            background: linear-gradient(to right, #00d2ff, #ffffff, #0077ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+        }
+
+        p.subtitulo {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            max-width: 800px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* --- TARJETAS DE CARACTERÍSTICAS --- */
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 220px;
+            background: rgba(13, 18, 30, 0.8);
+            padding: 25px 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.2);
+            border-color: rgba(0, 210, 255, 0.6);
+        }
+
+        .feature-card.blue {
+            background: rgba(15, 25, 45, 0.8);
+            border-color: rgba(0, 119, 255, 0.2);
+        }
+
+        .feature-card.blue:hover {
+            box-shadow: 0 15px 40px rgba(0, 119, 255, 0.2);
+            border-color: rgba(0, 119, 255, 0.6);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #00D2FF;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .feature-card.blue h3 {
+            color: #66b2ff;
+        }
+
+        .feature-card p {
+            color: #CBD5E1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* --- ESTRUCTURA DEL CONTADOR --- */
+        .right-panel h3.sidebar-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 119, 255, 0.8);
+        }
+
+        .timer-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .months-box {
+            background: rgba(13, 18, 30, 0.75);
+            border: 2px solid #0077ff;
+            border-radius: 15px;
+            padding: 10px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 35px rgba(0, 119, 255, 0.25);
+            width: 100%;
+        }
+
+        .months-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
+        }
+
+        .months-label {
+            font-size: 0.8rem;
+            color: #66b2ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .detail-timer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .time-box {
+            background: rgba(13, 18, 30, 0.5);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 12px;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .time-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            color: #00d2ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* --- BOTONES --- */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn-lanzamiento {
+            background: linear-gradient(135deg, #00d2ff 0%, #0077ff 100%);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-lanzamiento:hover {
+            box-shadow: 0 0 50px rgba(0, 210, 255, 0.7);
+            transform: scale(1.05);
+        }
+
+        .btn-demo {
+            background: rgba(0, 210, 255, 0.05);
+            color: #00d2ff;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: 2px solid #00d2ff;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn-demo:hover {
+            background: rgba(0, 210, 255, 0.15);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* --- MODAL --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid #00d2ff;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.2);
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .close-btn:hover { color: #fff; }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #444;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus { border-color: #00d2ff; }
+        
+        .btn-submit { width: 100%; margin-top: 10px; }
+        #msg-exito { color: #00ffaa; display: none; margin-top: 15px; font-weight: bold; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero-layout {
+                flex-direction: column;
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
+            .left-panel, .right-panel { width: 100%; }
+            .right-panel { max-width: 400px; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .logo-img { width: 100px; }
+            .cards-wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-container">
+        <div class="overlay"></div>
+
+        <div class="hero-layout">
+            <div class="left-panel">
+                <h1>Denti.IA</h1>
+                <p class="subtitulo">
+                    Revolucionando la gestión y el diagnóstico odontológico con IA.<br>
+                    Únete a la lista de espera exclusiva.
+                </p>
+
+                <div class="cards-wrapper">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Análisis IA Dental</h3>
+                        <p>Sube radiografías o fotos y nuestra IA detectará posibles anomalías al instante.</p>
+                    </div>
+
+                    <div class="feature-card blue">
+                        <div class="feature-icon">📂</div>
+                        <h3>Historial Inteligente</h3>
+                        <p>Centraliza la información de tus pacientes de forma segura y accesible.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Eficiencia Clínica</h3>
+                        <p>Optimiza el tiempo de consulta con un perfil detallado de cada paciente.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h3 class="sidebar-title">Lanzamiento</h3>
+                
+                <div class="timer-wrapper" id="countdown-ui">
+                    <div class="months-box">
+                        <span class="months-number" id="months">0</span>
+                        <span class="months-label">MESES</span>
+                    </div>
+                    <div class="detail-timer">
+                        <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">DÍAS</span></div>
+                        <div class="time-box"><span class="time-number" id="hours">00</span><span class="time-label">HORAS</span></div>
+                        <div class="time-box"><span class="time-number" id="minutes">00</span><span class="time-label">MIN</span></div>
+                        <div class="time-box"><span class="time-number" id="seconds">00</span><span class="time-label">SEG</span></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-lanzamiento" id="openModalBtn">Unirme a la lista</button>
+                    <a href="https://dent-ia.lovable.app/" target="_blank" class="btn-demo">Probar Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-suscription" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="color:#fff; margin-top:0;">¡ÚNETE AHORA!</h2>
+            <p style="color:#ccc;">Recibe acceso anticipado a Denti.IA.</p>
+            
+            <form name="submit-to-google-sheet" class="input-group">
+                <input type="text" name="Dueño" placeholder="Nombre del Dueño" required>
+                <input type="text" name="Clinica" placeholder="Nombre de la Clínica" required>
+                <input type="email" name="Email" placeholder="Correo Electrónico" required>
+                <input type="text" name="Direccion" placeholder="Dirección de la Clínica" required>
+                <button type="submit" class="btn-lanzamiento btn-submit">Registrarme</button>
+            </form>
+            <p id="msg-exito">¡Gracias! Los datos de tu clínica han sido registrados.</p>
+        </div>
+    </div>
+
+    <script>
+        // 🚨 IMPORTANTE: CAMBIA ESTE LINK POR EL DE TU NUEVO GOOGLE SHEETS DE DENTI.IA 🚨
+        const scriptURL = 'PEGAR_AQUI_TU_NUEVO_LINK_DE_GOOGLE_APPS_SCRIPT'; 
+
+        // FECHA DE LANZAMIENTO: Domingo 5 de abril de 2026 (3 semanas desde este domingo)
+        const launchDate = new Date("April 5, 2026 00:00:00");
+
+        function updateTimer() {
+            const now = new Date();
+            
+            if (now >= launchDate) {
+                document.getElementById("countdown-ui").innerHTML = "<h2 style='color:#fff; font-size:1.5rem; text-shadow:0 0 20px cyan; text-align:center;'>¡YA ESTAMOS EN VIVO!</h2>";
+                return;
+            }
+
+            let months = (launchDate.getFullYear() - now.getFullYear()) * 12;
+            months -= now.getMonth();
+            months += launchDate.getMonth();
+            
+            if (launchDate.getDate() < now.getDate()) months--;
+
+            let tempDate = new Date(now);
+            tempDate.setMonth(now.getMonth() + months);
+            
+            let diff = launchDate - tempDate;
+            if (diff < 0) diff = 0;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("months").innerText = months < 0 ? 0 : months;
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // MODAL Y ENVÍO
+        const modal = document.getElementById("modal-suscription");
+        const btnOpen = document.getElementById("openModalBtn");
+        const btnClose = document.querySelector(".close-btn");
+
+        btnOpen.addEventListener("click", () => { modal.style.display = "flex"; });
+        btnClose.addEventListener("click", () => { modal.style.display = "none"; });
+        window.addEventListener("click", (e) => { if (e.target == modal) modal.style.display = "none"; });
+
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg-exito");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Si no has puesto el link de Google Sheets, evitamos que dé error
+            if (scriptURL === 'PEGAR_AQUI_TU_NUEVO_LINK_DE_GOOGLE_APPS_SCRIPT') {
+                alert("Aún no has configurado el link de Google Sheets. Los datos no se guardarán.");
+                return;
+            }
+
+            const btn = form.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.style.display = "block";
+                    form.reset();
+                    btn.innerText = "¡Listo!";
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                        msg.style.display = "none";
+                    }, 2500);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    btn.innerText = "Reintentar";
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
