@@ -19,31 +19,50 @@
             font-family: 'Rajdhani', sans-serif;
             background-color: #050505;
             overflow-x: hidden;
+            scroll-behavior: smooth; /* Desplazamiento suave al dar clic */
         }
 
-        /* --- ACCESO DIRECTO MÓVIL (RAYITAS) --- */
-        .mobile-nav {
+        /* --- MENÚ PROFESIONAL MÓVIL --- */
+        .mobile-header-nav {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 1000;
-            display: none; /* Se activa en @media */
+            display: none;
         }
-        .burger-btn {
-            background: rgba(0, 210, 255, 0.15);
-            border: 2px solid #00d2ff;
+        .btn-premium-demo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(13, 18, 30, 0.8);
+            border: 1px solid rgba(0, 210, 255, 0.5);
+            padding: 8px 15px;
             border-radius: 12px;
-            padding: 10px;
-            cursor: pointer;
+            text-decoration: none;
             backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .btn-premium-demo:active { transform: scale(0.95); }
+        .burger-icon {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            text-decoration: none;
-            align-items: center;
+            gap: 4px;
         }
-        .line { width: 25px; height: 3px; background: #00d2ff; border-radius: 5px; }
-        .burger-text { color: #00d2ff; font-size: 10px; font-weight: 800; margin-top: 2px; }
+        .burger-icon span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: #00d2ff;
+            border-radius: 2px;
+        }
+        .demo-label {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
         /* --- CONTENEDOR DE FONDO --- */
         .hero-container {
@@ -87,7 +106,6 @@
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* NOMBRE CORREGIDO: DentIA */
         h1 {
             font-size: 4rem;
             margin: 0;
@@ -101,8 +119,8 @@
             text-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
         }
 
-        /* BANNER DE PROMOCIÓN */
-        .promo-tag {
+        /* BOTÓN PROMO CON ANCLAJE */
+        .promo-button {
             background: linear-gradient(90deg, rgba(0,210,255,0.2) 0%, rgba(0,119,255,0.2) 100%);
             border: 1px solid #00d2ff;
             color: #fff;
@@ -112,7 +130,9 @@
             margin-bottom: 25px;
             font-size: 1rem;
             letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
             animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
@@ -120,9 +140,9 @@
         p.subtitulo { font-size: 1.25rem; color: #d1d5db; margin-bottom: 35px; max-width: 800px; text-shadow: 0 2px 5px rgba(0,0,0,0.9); }
 
         .cards-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; width: 100%; }
-        .feature-card { flex: 1; min-width: 230px; background: rgba(13, 18, 30, 0.85); padding: 30px 20px; border-radius: 15px; border: 1px solid rgba(0, 210, 255, 0.2); backdrop-filter: blur(10px); text-align: center; }
-        .feature-card h3 { color: #00D2FF; margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; }
-        .feature-card p { color: #CBD5E1; font-size: 0.98rem; line-height: 1.6; margin: 0; }
+        .feature-card { flex: 1; min-width: 230px; background: rgba(13, 18, 30, 0.85); padding: 30px 20px; border-radius: 15px; border: 1px solid rgba(0, 210, 255, 0.1); backdrop-filter: blur(10px); text-align: center; }
+        .feature-card h3 { color: #00D2FF; margin-bottom: 10px; font-size: 1.4rem; font-weight: 700; }
+        .feature-card p { color: #CBD5E1; font-size: 0.98rem; line-height: 1.6; }
 
         .right-panel {
             flex: 1;
@@ -131,46 +151,50 @@
             align-items: center;
             background: rgba(13, 18, 30, 0.75);
             padding: 40px 20px;
-            border-radius: 20px;
+            border-radius: 25px;
             border: 1px solid rgba(0, 210, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
             backdrop-filter: blur(12px);
             min-width: 320px;
         }
 
         .timer-row { display: flex; justify-content: center; gap: 12px; width: 100%; margin-bottom: 35px; }
-        .time-box { flex: 1; background: rgba(13, 18, 30, 0.6); border: 1px solid rgba(0, 210, 255, 0.4); border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; align-items: center; }
+        .time-box { flex: 1; background: rgba(13, 18, 30, 0.6); border: 1px solid rgba(0, 210, 255, 0.3); border-radius: 12px; padding: 15px 8px; display: flex; flex-direction: column; align-items: center; }
         .time-number { font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 15px rgba(0, 210, 255, 0.7); }
         .time-label { font-size: 0.75rem; color: #00d2ff; text-transform: uppercase; font-weight: 700; }
 
-        .action-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-        .btn-lanzamiento { background: linear-gradient(135deg, #00d2ff 0%, #0077ff 100%); color: white; padding: 16px 30px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; }
-        .btn-demo { background: rgba(0, 210, 255, 0.03); color: #00d2ff; padding: 15px 30px; border: 2px solid #00d2ff; border-radius: 50px; font-weight: 700; text-decoration: none; text-align: center; text-transform: uppercase; }
+        .btn-lanzamiento { background: linear-gradient(135deg, #00d2ff 0%, #0077ff 100%); color: white; padding: 16px 30px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; transition: 0.3s; }
+        .btn-lanzamiento:hover { box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); }
+        
+        .btn-demo-outline { margin-top: 15px; background: transparent; color: #00d2ff; padding: 15px 30px; border: 2px solid #00d2ff; border-radius: 50px; font-weight: 700; text-decoration: none; text-align: center; text-transform: uppercase; width: 100%; transition: 0.3s; }
+        .btn-demo-outline:hover { background: rgba(0, 210, 255, 0.1); }
 
         /* MODAL */
         .modal-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.88); justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-        .modal-content { background: rgba(15, 23, 42, 0.98); border: 1px solid #00d2ff; border-radius: 20px; padding: 35px; width: 100%; max-width: 420px; text-align: center; position: relative; box-shadow: 0 0 45px rgba(0, 210, 255, 0.3); }
+        .modal-content { background: #0f172a; border: 1px solid #00d2ff; border-radius: 20px; padding: 35px; max-width: 420px; width: 100%; text-align: center; position: relative; }
         .close-btn { position: absolute; top: 15px; right: 22px; color: #aaa; font-size: 32px; font-weight: bold; cursor: pointer; }
         .input-group input { width: 100%; padding: 16px; margin: 10px 0; background: rgba(255,255,255,0.06); border: 1px solid #444; border-radius: 12px; color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 1rem; outline: none; }
         #msg-exito { color: #00ffaa; display: none; margin-top: 18px; font-weight: 700; font-size: 1.1rem;}
 
         /* --- RESPONSIVE --- */
         @media (max-width: 992px) {
-            .hero-layout { flex-direction: column; padding-top: 60px; }
+            .hero-layout { flex-direction: column; padding-top: 80px; }
             .left-panel, .right-panel { width: 100%; }
-            .mobile-nav { display: block; } /* Activamos el botón en móviles */
+            .mobile-header-nav { display: block; } /* Mostrar menú premium en móvil */
             h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="mobile-nav">
-        <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="burger-btn">
-            <div class="line"></div>
-            <div class="line" style="width: 18px; align-self: flex-end;"></div>
-            <div class="line"></div>
-            <span class="burger-text">PROBAR DEMO</span>
+    <div class="mobile-header-nav">
+        <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="btn-premium-demo">
+            <div class="burger-icon">
+                <span></span>
+                <span style="width: 14px;"></span>
+                <span></span>
+            </div>
+            <span class="demo-label">PROBAR DEMO</span>
         </a>
     </div>
 
@@ -183,9 +207,9 @@
                     <h1>DentIA</h1>
                 </div>
 
-                <div class="promo-tag">
+                <a href="#form-section" class="promo-button" onclick="document.getElementById('modal-suscription').style.display='flex'; return false;">
                     🎁 PROMO: 3 MESES GRATIS A LOS 30 PRIMEROS
-                </div>
+                </a>
                 
                 <p class="subtitulo">Revolucionando la gestión y el diagnóstico odontológico con IA.<br>Únete a la lista de espera exclusiva.</p>
 
@@ -196,7 +220,7 @@
                 </div>
             </div>
 
-            <div class="right-panel">
+            <div class="right-panel" id="form-section">
                 <h3 style="color: white; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">Lanzamiento</h3>
                 <div class="timer-row" id="countdown-ui">
                     <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">DÍAS</span></div>
@@ -205,8 +229,8 @@
                     <div class="time-box"><span class="time-number" id="seconds">00</span><span class="time-label">SEG</span></div>
                 </div>
                 <div class="action-buttons">
-                    <button class="btn-lanzamiento" id="openModalBtn">Unirme a la lista</button>
-                    <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="btn-demo">Probar Demo</a>
+                    <button class="btn-lanzamiento" onclick="document.getElementById('modal-suscription').style.display='flex'">Unirme a la lista</button>
+                    <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="btn-demo-outline">Probar Demo</a>
                 </div>
             </div>
         </div>
@@ -214,18 +238,18 @@
 
     <div id="modal-suscription" class="modal-overlay">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 style="color:#fff; margin-top:0;">¡ÚNETE AHORA!</h2>
-            <p style="color:#00d2ff; font-weight: 700;">¡ASEGURA TUS 3 MESES GRATIS!</p>
+            <span class="close-btn" onclick="document.getElementById('modal-suscription').style.display='none'">&times;</span>
+            <h2 style="color:#fff; margin-top:0; letter-spacing: 1px;">¡ÚNETE AHORA!</h2>
+            <p style="color:#00d2ff; font-weight: 700; font-size: 0.9rem; text-transform: uppercase;">Asegura tus 3 meses gratis</p>
             <form name="submit-to-google-sheet" class="input-group">
-                <input type="text" name="Nombre del encargado" placeholder="Nombre del Odontólogo/Encargado" required>
+                <input type="text" name="Nombre del encargado" placeholder="Nombre del Encargado" required>
                 <input type="text" name="Nombre de Clinica" placeholder="Nombre de la Clínica" required>
                 <input type="email" name="Correo electronico" placeholder="Correo Electrónico" required>
                 <input type="tel" name="Numero telefonico" placeholder="Número Telefónico" required>
                 <input type="text" name="Dirección" placeholder="Dirección de la Clínica" required>
-                <button type="submit" class="btn-lanzamiento btn-submit">Registrarme</button>
+                <button type="submit" class="btn-lanzamiento" style="margin-top: 15px;">Registrarme</button>
             </form>
-            <p id="msg-exito">¡Listo! Si estás entre los 30 primeros, te contactaremos.</p>
+            <p id="msg-exito">¡Listo! Te avisaremos si ganaste la suscripción.</p>
         </div>
     </div>
 
@@ -249,18 +273,12 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        const modal = document.getElementById("modal-suscription");
-        const btnOpen = document.getElementById("openModalBtn");
-        const btnClose = document.querySelector(".close-btn");
-        btnOpen.addEventListener("click", () => { modal.style.display = "flex"; });
-        btnClose.addEventListener("click", () => { modal.style.display = "none"; });
-        window.addEventListener("click", (e) => { if (e.target == modal) modal.style.display = "none"; });
-
+        // Lógica de envío y cierre automático
         const form = document.forms['submit-to-google-sheet'];
         const msg = document.getElementById("msg-exito");
         form.addEventListener('submit', e => {
             e.preventDefault();
-            const btn = form.querySelector('.btn-submit');
+            const btn = form.querySelector('button');
             btn.innerText = "Enviando...";
             btn.disabled = true;
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
@@ -269,15 +287,11 @@
                     form.reset();
                     btn.innerText = "¡LISTO!";
                     setTimeout(() => {
-                        modal.style.display = "none";
+                        document.getElementById('modal-suscription').style.display='none';
+                        msg.style.display = "none";
                         btn.innerText = "REGISTRARME";
                         btn.disabled = false;
-                        msg.style.display = "none";
                     }, 4000);
-                })
-                .catch(error => {
-                    btn.innerText = "REINTENTAR";
-                    btn.disabled = false;
                 });
         });
     </script>
