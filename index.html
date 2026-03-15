@@ -19,10 +19,10 @@
             font-family: 'Rajdhani', sans-serif;
             background-color: #050505;
             overflow-x: hidden;
-            scroll-behavior: smooth; /* Desplazamiento suave al dar clic */
+            scroll-behavior: smooth;
         }
 
-        /* --- MENÚ PROFESIONAL MÓVIL --- */
+        /* --- MENÚ PROFESIONAL MÓVIL (CORREGIDO A VERDE) --- */
         .mobile-header-nav {
             position: fixed;
             top: 15px;
@@ -34,35 +34,23 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(13, 18, 30, 0.8);
-            border: 1px solid rgba(0, 210, 255, 0.5);
+            background: rgba(13, 18, 30, 0.9);
+            /* Borde Verde Neón */
+            border: 2px solid #00FF88; 
             padding: 8px 15px;
             border-radius: 12px;
             text-decoration: none;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            /* Sombra Verde */
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3); 
             transition: 0.3s;
         }
         .btn-premium-demo:active { transform: scale(0.95); }
-        .burger-icon {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .burger-icon span {
-            display: block;
-            width: 20px;
-            height: 2px;
-            background: #00d2ff;
-            border-radius: 2px;
-        }
-        .demo-label {
-            color: #fff;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .burger-icon { display: flex; flex-direction: column; gap: 4px; }
+        /* Rayitas Verdes */
+        .burger-icon span { display: block; width: 20px; height: 2px; background: #00FF88; border-radius: 2px; }
+        /* Texto Demo Verde */
+        .demo-label { color: #00FF88; font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
 
         /* --- CONTENEDOR DE FONDO --- */
         .hero-container {
@@ -119,7 +107,7 @@
             text-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
         }
 
-        /* BOTÓN PROMO CON ANCLAJE */
+        /* BOTÓN PROMO */
         .promo-button {
             background: linear-gradient(90deg, rgba(0,210,255,0.2) 0%, rgba(0,119,255,0.2) 100%);
             border: 1px solid #00d2ff;
@@ -148,7 +136,8 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centrado Horizontal */
+            justify-content: center; /* Centrado Vertical */
             background: rgba(13, 18, 30, 0.75);
             padding: 40px 20px;
             border-radius: 25px;
@@ -156,6 +145,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
             backdrop-filter: blur(12px);
             min-width: 320px;
+            text-align: center;
         }
 
         .timer-row { display: flex; justify-content: center; gap: 12px; width: 100%; margin-bottom: 35px; }
@@ -163,11 +153,37 @@
         .time-number { font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 15px rgba(0, 210, 255, 0.7); }
         .time-label { font-size: 0.75rem; color: #00d2ff; text-transform: uppercase; font-weight: 700; }
 
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; align-items: center; }
         .btn-lanzamiento { background: linear-gradient(135deg, #00d2ff 0%, #0077ff 100%); color: white; padding: 16px 30px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; transition: 0.3s; }
         .btn-lanzamiento:hover { box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); }
         
-        .btn-demo-outline { margin-top: 15px; background: transparent; color: #00d2ff; padding: 15px 30px; border: 2px solid #00d2ff; border-radius: 50px; font-weight: 700; text-decoration: none; text-align: center; text-transform: uppercase; width: 100%; transition: 0.3s; }
-        .btn-demo-outline:hover { background: rgba(0, 210, 255, 0.1); }
+        /* BOTÓN DEMO CORREGIDO A VERDE Y CENTRADO */
+        .btn-demo-green-premium {
+            margin-top: 15px;
+            background: transparent;
+            /* Texto Verde Neón */
+            color: #00FF88; 
+            padding: 15px 30px;
+            /* Borde Verde Neón */
+            border: 2px solid #00FF88; 
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            width: 100%;
+            display: block;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            /* Sombra Verde suave */
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); 
+        }
+        .btn-demo-green-premium:hover {
+            background: rgba(0, 255, 136, 0.1);
+            /* Sombra Verde Fuerte en Hover */
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5); 
+            transform: translateY(-2px);
+        }
 
         /* MODAL */
         .modal-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.88); justify-content: center; align-items: center; backdrop-filter: blur(10px); }
@@ -180,7 +196,7 @@
         @media (max-width: 992px) {
             .hero-layout { flex-direction: column; padding-top: 80px; }
             .left-panel, .right-panel { width: 100%; }
-            .mobile-header-nav { display: block; } /* Mostrar menú premium en móvil */
+            .mobile-header-nav { display: block; } /* Mostrar menú premium verde en móvil */
             h1 { font-size: 3rem; }
         }
     </style>
@@ -207,7 +223,7 @@
                     <h1>DentIA</h1>
                 </div>
 
-                <a href="#form-section" class="promo-button" onclick="document.getElementById('modal-suscription').style.display='flex'; return false;">
+                <a href="#countdown-ui" class="promo-button" onclick="document.getElementById('modal-suscription').style.display='flex'; return false;">
                     🎁 PROMO: 3 MESES GRATIS A LOS 30 PRIMEROS
                 </a>
                 
@@ -220,7 +236,7 @@
                 </div>
             </div>
 
-            <div class="right-panel" id="form-section">
+            <div class="right-panel">
                 <h3 style="color: white; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;">Lanzamiento</h3>
                 <div class="timer-row" id="countdown-ui">
                     <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">DÍAS</span></div>
@@ -230,7 +246,7 @@
                 </div>
                 <div class="action-buttons">
                     <button class="btn-lanzamiento" onclick="document.getElementById('modal-suscription').style.display='flex'">Unirme a la lista</button>
-                    <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="btn-demo-outline">Probar Demo</a>
+                    <a href="https://dent-ia.lovable.app/seleccionar-rol" target="_blank" class="btn-demo-green-premium">Probar Demo</a>
                 </div>
             </div>
         </div>
@@ -273,7 +289,6 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // Lógica de envío y cierre automático
         const form = document.forms['submit-to-google-sheet'];
         const msg = document.getElementById("msg-exito");
         form.addEventListener('submit', e => {
